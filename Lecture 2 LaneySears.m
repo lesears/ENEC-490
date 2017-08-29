@@ -1,4 +1,4 @@
-data=xlsread('NY_gasprices.xls','B11:B370');
+data=xlsread('EER_EPMRU_PF4_Y35NY_DPGm.xls','Data 1','B11:B370');
 Y1 = mean(data(1:12, 1));
 Y2 = mean(data(13:24, 1));
 Y3 = mean(data(25:36, 1));
@@ -37,3 +37,4 @@ datafinal = data4.'
 
 %filename = 'monthly_average_price.xlsx'; 
 xlswrite('C:\Users\Laney\Documents\MATLAB\monthly_average_price.xlsx', datafinal)
+
