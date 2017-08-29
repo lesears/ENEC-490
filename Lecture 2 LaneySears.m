@@ -36,5 +36,5 @@ data4 = vertcat(data3, data2);
 datafinal = data4.'
 
 %filename = 'monthly_average_price.xlsx'; 
-xlswrite('C:\Users\Laney\Documents\MATLAB\monthly_average_price.xlsx', datafinal)
+xlswrite("monthly_average_price.xlsx", datafinal)
 
