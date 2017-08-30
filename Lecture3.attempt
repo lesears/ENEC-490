@@ -5,7 +5,7 @@ d = annual_profile(data);
 for i = 1:12
 %calculate mean and std., put those into the right spot in output matrix>
 monthly_mean = mean(d);
-m(:,1) = monthly_mean;
+m(:,1) = monthly_mean(1);
 monthly_sd = std(d);
-m(:,2) = monthly_sd;
+m(:,2) = monthly_sd(1);
 end
