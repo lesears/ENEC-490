@@ -1,16 +1,11 @@
-function [ n ] = monthly_stats( data )
+function [ n ] = monthly_stats( d )
 %[data text combined] = xlsread('RNGWHHDm.xls','Data 1')
 m = zeros(12, 2);
-
+d = annual_profile(data);
 for i = 1:12
-    numbers = data(:,1) ;
-    monthly_mean(i) = mean(numbers);
-    m(:,1) = monthly_mean;
+%calculate mean and std., put those into the right spot in output matrix>
+monthly_mean = mean(d);
+m(:,1) = monthly_mean;
+monthly_sd = std(d);
+m(:,2) = monthly_sd;
 end
-
-for j = 1:12
-    numbers = data(:,1)
-    monthly_sd(j) = std(numbers);
-    m(:,2) = monthly_sd;
-end
-% numbers = cell2mat(combined(first + (j-1)*12:first + (j-1)*12+11,2))
