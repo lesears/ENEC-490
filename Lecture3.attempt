@@ -1,0 +1,16 @@
+function [ n ] = monthly_stats( data )
+%[data text combined] = xlsread('RNGWHHDm.xls','Data 1')
+m = zeros(12, 2);
+
+for i = 1:12
+    numbers = data(:,1) ;
+    monthly_mean(i) = mean(numbers);
+    m(:,1) = monthly_mean;
+end
+
+for j = 1:12
+    numbers = data(:,1)
+    monthly_sd(j) = std(numbers);
+    m(:,2) = monthly_sd;
+end
+% numbers = cell2mat(combined(first + (j-1)*12:first + (j-1)*12+11,2))
