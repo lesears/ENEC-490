@@ -1,16 +1,15 @@
 %Lecture 3
 
 [data text combined] = xlsread('RNGWHHDm.xls','Data 1');
-
-%call annual profile function
+%function done in class
 d = annual_profile(data); 
 [months,years] = size(d);
 
-%create new figure
+%new figure
 figure; 
 hold on;
 
-%plot function within for loop
+%plot
 for i  = 1:years
     plot(d(:,i),'color',rand(1,3));
 end
@@ -20,22 +19,20 @@ set(gca, 'XTickLabel',{'Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oc
 set(gca,'XTick',1:1:12);
 ylabel('Natural Gas Price ($/MMBtu)','FontSize',14);
 legend('2008','2009','2010','2011','2012','2013','2014','2015','2016');
+%done in class
 
-%call monthly stats function
+% monthly stats function in folder 'monthly_stats.m'
 s = monthly_stats(data);
 
-% april
 april = s(4,1) + s(4,2)*randn(1000,1);
 
-% january
 january = s(1,1) + s(1,2)*randn(1000,1);
 
-%histograms
 figure;
 edges = -5:0.5:15;
 histogram(april,edges);
 hold on;
 histogram(january,edges);
-xlabel('Natural Gas Price ($/MMBtu)','FontSize',14);
-ylabel('Frequency','FontSize',14);
+xlabel('Natural Gas Price');
+ylabel('Frequency');
 legend('April','January');
