@@ -1,0 +1,15 @@
+%monte carlo 
+%m = mean(d)
+%s = std(d);
+%sample = m + (s*(randn(10)));
+
+demandMean = 1.5 + 2*rand(10,1);
+demandSTD = .3 + .2*rand(10,1);
+
+for a = 1:10
+    demand(a) = demandMean(a) + demandSTD(a)*randn(1);
+end
+
+
+figure
+plot(demand)
