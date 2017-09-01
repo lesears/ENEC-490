@@ -1,10 +1,10 @@
-%monte carlo 
-%m = mean(d)
-%s = std(d);
+%monte carlo
+m = mean(totals)
+s = std(totals);
 %sample = m + (s*(randn(10)));
 
-demandMean = 1.5 + 2*rand(10,1);
-demandSTD = .3 + .2*rand(10,1);
+demandMean = m + s*rand(10,1);
+demandSTD = m + s*rand(10,1);
 
 for a = 1:10
     demand(a) = demandMean(a) + demandSTD(a)*randn(1);
