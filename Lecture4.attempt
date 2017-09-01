@@ -1,13 +1,17 @@
 %monte carlo
-m = mean(totals)
-s = std(totals);
-%sample = m + (s*(randn(10)));
 
-demandMean = m + s*rand(10,1);
-demandSTD = m + s*rand(10,1);
+# why not use the monthly stats function -- if yours doesn't work, download mine
 
-for a = 1:10
-    demand(a) = demandMean(a) + demandSTD(a)*randn(1);
+# remeber, this needs to act on a 12 x N matrix that you've created using 'annual_profile'
+stats = monthly_stats(d);
+
+for year = 1:sim_years
+    for month = 1:12
+        
+        # fill in the blanks
+        demand( ) = stats() + stats()*randn(1);
+        
+    end
 end
 
 
