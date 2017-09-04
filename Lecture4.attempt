@@ -1,16 +1,20 @@
 %monte carlo
 
-# why not use the monthly stats function -- if yours doesn't work, download mine
+% why not use the monthly stats function -- if yours doesn't work, download mine
+d = annual_profile(data);
 
-# remeber, this needs to act on a 12 x N matrix that you've created using 'annual_profile'
+% remeber, this needs to act on a 12 x N matrix that you've created using 'annual_profile'
 stats = monthly_stats(d);
-demand = size(annual_profile);
-sim_years = 10
-for year = :1:sim_years
+sim_years = 10;
+
+% you want this to be a vector
+demand = zeros(sim_years*12,1);
+
+for year = 1:sim_years
     for month = 1:12
         
-        # fill in the blanks
-        demand(month,year) = stats(year) + stats(month)*randn(1);
+        % fill in the blanks
+        demand((year-1)*12+month) = stats(month,1) + stats(month,2)*randn(1);
         
     end
 end
