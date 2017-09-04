@@ -4,12 +4,13 @@
 
 # remeber, this needs to act on a 12 x N matrix that you've created using 'annual_profile'
 stats = monthly_stats(d);
-
-for year = 1:sim_years
+demand = size(annual_profile);
+sim_years = 10
+for year = :1:sim_years
     for month = 1:12
         
         # fill in the blanks
-        demand( ) = stats() + stats()*randn(1);
+        demand(month,year) = stats(year) + stats(month)*randn(1);
         
     end
 end
